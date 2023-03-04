@@ -30,7 +30,8 @@ title: Hello World!
 # github_username: owlxiao 
 
 # Build settings
-theme: jekyll-theme-modernist
+#theme: jekyll-theme-modernist
+theme: minima
 plugins:
   - jekyll-feed
 
