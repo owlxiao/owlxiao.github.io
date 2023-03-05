@@ -13,7 +13,7 @@
 <p align="left">问问ChatGPT：</p>
 
 
- <img src="./pic/ask-chat-gpt.png" width = "50%" height = "50%"  align=center></img>
+<img src="./pic/ask-chat-gpt.png" width = "50%" height = "50%"  align=center></img>
 
 
 <!-- slide vertical=true -->
@@ -50,7 +50,7 @@
 
 道理都明确， 但是：
 * 硬件又不如软件， 开发周期长
-* Failure, Error调试难度剧增
+* 调试难度剧增
     * 一步步推翻三座大山
 
 
@@ -116,7 +116,7 @@
 
 ---
 
-将机器人系统抽象成几个不同层次进行model checking： 
+对机器人系统的几个抽象层次进行model checking:
 * 世界万物都是状态机 
     * 跟黄金模型进行对比
 * 防御性编程有时候太蠢了😂
@@ -128,6 +128,25 @@
 
 </div>
 
+<!-- slide vertical=true -->
+
+<div align="left">
+
+2022年: 香山团队的DiffTest工作被体系结构国际顶会MICRO录用
+
+--- 
+<font size=6>
+Yinan Xu, et al. Towards Developing High Performance RISC-V Processors Using Agile Methodology
+</font>
+
+
+</div>
+
+<img src="./pic/difftest-micro.png" width = "70%" height = "70%"  align=center></img>
+
+>
+
+
 <!-- slide  -->
 <div align="left">
 
@@ -136,11 +155,11 @@
 ---
 
 * 知己知彼，百战不殆
-* 尝试运用人工智能构建起的假想敌
+* 尝试运用人工智能构建起假想敌
     * 学习往届队伍的机器人行为
-        * 这样就可以部署到已有的机器人上，进行模拟
+        * 这样就可以部署到已有的机器人上，进行模拟对抗
 * 最简单的demo
-    * CoppeliaSim + Gym 构建去强化学习
+    * CoppeliaSim + Gym 去强化学习
 
 </div>
 
@@ -158,7 +177,7 @@ CoppeliaSim和abaqus进行建模仿真
     * 停留在用的层次，快速上手 :o:
 
 * 难点
-    * 如何用联系起整个平台，做全平台仿真 :question:
+    * 如何联系起整个平台，做全平台仿真 :question:
     * 各个物理层面的仿真：碰撞，应力... :question:
     * 高性能计算 :question:
 
@@ -198,3 +217,93 @@ Differential Testing
 
 
 </div>
+
+<!-- slide -->
+问题？
+
+<!-- slide vertical=true -->
+
+<div align="left">
+
+这有什么用呢？一两个月机器人就搭起来了...
+
+---
+
+* 当然！基础设施的建立都是需要高投入的，正所谓“罪在当代，功在千秋”
+* 试想一下后几届的比赛，我们可以直接用自动化继集成工具去验证模型
+    * 一键启动
+    * ~~不觉得很酷吗 作为一个工科男 我觉得这太酷了 很符合我对未来生活的想象 科技并带着些趣味~~
+
+
+</div>
+
+
+<!-- slide vertical=true -->
+<div align="left">
+
+香山的基础设施
+
+---
+
+<font size=6>
+
+2021年RISC-V中国峰会, 工具类报告占香山团队报告总量55%
+
+* 大厂里面的基础设施更丰富
+
+</font>
+
+<img src="./pic/xiangshan-tools.png" width = "70%" height = "70%"  align=center></img>
+
+</div>
+
+<!-- slide vertical=true -->
+<div align="left">
+
+我不能实际测试吗，非要用仿真
+
+---
+
+没错，诸多东西都可以用经验主义实际去测出来
+* ~~我的想法没用~~
+
+随着机器人的复杂度增加，弊端就会暴露出来
+* 仿真的意义是提供一个一致性较好、不确定因素可控的评估对象/环境
+* 6台车，总不能造出来了再测吧😂
+* 车能gank其他的车吗？
+
+</div>
+
+
+<!-- slide vertical=true -->
+<div align="left">
+
+为什么要用coppeliasim和abaqus建模
+
+---
+
+coppeliasim(前V-rep)
+
+* 可以导入solidworks模型
+    * [Can we import our Solidworks robot designs into V-REP?](https://forum.coppeliarobotics.com/viewtopic.php?t=17&sid=bc05d8b0e1e5f352ac34aaa82ba7af28)
+* 支持C/C++，Python，JAVA，Lua，Matlab编写脚本
+    * [Remote API](https://www.coppeliarobotics.com/helpFiles/en/remoteApiOverview.htm)
+* 内嵌多种物理引擎
+    * [Dynamics](https://www.coppeliarobotics.com/helpFiles/en/dynamicsModule.htm)
+
+</div>
+
+<!-- slide vertical=true -->
+<div align="left">
+
+ABAQUS
+
+---
+
+* 支持Solidworks模型导入
+* 有强大的材料库
+* B站大学有学习资料😂
+* 输出的inp文件可以用其他有限元求解器处理
+    * 用taichi写的[FEMcy](https://github.com/mo-hanxuan/FEMcy)
+
+</dif>
