@@ -3,6 +3,8 @@ languageCode: 'en-us'
 title: 'Blog'
 theme: 'hugo-PaperMod'
 
+enableEmoji: true
+
 params:
     # home-info mode
   homeInfoParams:
