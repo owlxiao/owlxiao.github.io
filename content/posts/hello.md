@@ -25,3 +25,16 @@ Backwards of a function that multiplies a matrix with a row vector and take a re
 $$
 f(x, y) = \text{relu}(x_{j, i} \times y_j)\text{ for } i = 1\ldots N_0,\ j = 1\ldots N_1
 $$
+
+## Code Highlight 
+
+```cpp
+#include <iostream>
+#include <foramt>
+
+int main() {
+    std::cout << std::format("Hello World!\n);
+    return 0;
+}
+
+```
